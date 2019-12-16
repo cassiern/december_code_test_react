@@ -10,7 +10,8 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      isLogged: false
+      isLogged: false,
+      currentUser: {}
     }
   }  
 
@@ -19,12 +20,15 @@ class App extends Component {
   //    isLogged: true
   //  })
   // }
-
+getCurrentUser = (currentUser)=>{
+  console.log(currentUser, "<--- currentUser in APP")
+  this.setState({currentUser : currentUser})
+}
 render(){
   return (
     <div className="background">
     <Navbar />
-    <Auth/> 
+    <Auth passCurrentUser = {this.getCurrentUser}/> 
     </div>
   );
 }

@@ -23,16 +23,20 @@ class Auth extends Component {
 		//e.preventDefault();
 		this.setState({
 			currentUser: {
+				...this.state.currentUser,
 				[e.currentTarget.name]: e.currentTarget.value
 
 			}
+		}, ()=>{
+			console.log(this.state, '<-- state after setting it')
 		})
-		console.log(this.state, '<-- state after setting it')
+		
 	}
 	handleLoginChange = (e) => {
 		//e.preventDefault();
 		this.setState({
 			currentUser: {
+				...this.state.currentUser,
 				[e.currentTarget.name]: e.currentTarget.value
 
 			}
@@ -54,30 +58,37 @@ class Auth extends Component {
 		e.preventDefault();
 		console.log(this.state.currentUser, '<-- current user in the register')
 		try{
-		const newUser = await fetch('http://localhost:9000/user/register', {
+			console.log(this.state.currentUser)
+			const newUser = await fetch('http://localhost:9000/user/register', {
 			method: 'POST',
 			credentials: 'include',
 			body: JSON.stringify(this.state.currentUser),
 			headers: {
 				'Content-Type': 'application/json'
-			}
-		})
-		console.log(newUser, '<-- USER CREATED');
-		if(newUser.status !== 200){
-			throw Error('something went wrong in register route')
-		}else{
-			console.log(newUser, '<-- NEW USER')
-			const createUserResponse = await newUser.json();
-			//console.log(createUserResponse, '<-- create user response')
-			this.setState({
-				currentUser: {
-					email: createUserResponse.email,
-					password: createUserResponse.password
-				},
-				isLogged: true,
-				hideAuth: true				
+				}
 			})
-		}
+				
+			console.log(newUser, '<-- USER CREATED');
+				
+				if(newUser.status !== 200){
+					throw Error('something went wrong in register route')
+				} else{
+					// console.log(newUser, '<-- NEW USER')
+					const createUserResponse = await newUser.json()
+					// console.log(createUserResponse.data, '<-- create user response')
+					this.setState({
+						currentUser: {
+							email: createUserResponse.data.email,
+							id: createUserResponse.data.id
+						},
+						isLogged: true,
+						hideAuth: true				
+					}, ()=>{
+						console.log(this.state.currentUser)
+						this.props.passCurrentUser(this.state.currentUser);
+					})
+					
+				}
 		}catch(err){
 			return(err)
 		}
