@@ -11403,6 +11403,21 @@ video {
   z-index: auto;
 }
 
+.header {
+  color: #38a169;
+  text-transform: uppercase;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 2.25rem;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 2;
+  text-align: center;
+}
+
 .btn {
   font-weight: 700;
   padding: 0.25rem;
@@ -11417,6 +11432,8 @@ video {
           justify-content: center;
   border-radius: 0.25rem;
   color: #2c5282;
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  display: inline;
 }
 
 .btn:hover {
@@ -11433,10 +11450,11 @@ video {
           justify-content: center;
   border-radius: 0.25rem;
   color: #2c5282;
+  border-color: #a0aec0;
+  display: inline;
 }
 
 .btn-container {
-  margin-left: 16rem;
   -webkit-box-pack: center;
           justify-content: center;
 }
@@ -11447,8 +11465,6 @@ video {
   border-radius: 0.25rem;
   background-color: #edf2f7;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
   margin-left: 0.5rem;
   color: #2c5282;
 }
@@ -11458,8 +11474,6 @@ video {
   padding: 0.25rem;
   background-color: #cbd5e0;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
   margin-left: 0.5rem;
   border-radius: 0.25rem;
   color: #2c5282;
@@ -11485,6 +11499,7 @@ video {
   font-weight: 700;
   margin-left: 3rem;
   margin-right: 3rem;
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   color: #edf2f7;
   padding-left: 1px;
   padding-right: 1px;
@@ -11535,6 +11550,7 @@ video {
 }
 
 .logout {
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   color: #000;
   text-decoration: underline;
   display: -webkit-box;
@@ -11543,13 +11559,38 @@ video {
           justify-content: center;
 }
 
-.auth-container {
+.authContainer {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
           justify-content: center;
   margin-left: 3rem;
   margin-right: 3rem;
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.signInContainer {
+  background-color: #4a5568;
+  padding: 0.5rem;
+  border-width: 1px;
+  border-radius: 0.25rem;
+  border-style: double;
+  border-color: #a0aec0;
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.logo {
+  color: #38a169;
+  text-transform: uppercase;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-style: italic;
+  font-size: 0.75rem;
+  vertical-align: middle;
+  letter-spacing: 0.05em;
+  text-align: left;
 }
 
 @media (min-width: 640px) {
@@ -54663,3 +54704,6 @@ video {
     z-index: auto;
   }
 }
+
+
+

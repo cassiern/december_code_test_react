@@ -26,6 +26,7 @@ class Main extends Component{
 
 			postToEdit: {
 				_id: null,
+				title: '',
 				text: '',
 				image: ''
 			}
@@ -79,10 +80,11 @@ class Main extends Component{
 
 			this.setState({
 					posts: [...this.state.posts, createdPostResponse.data],
+					title: createdPostResponse.data.title,
 					text: createdPostResponse.data.text,
 					image: createdPostResponse.data.image
 			})
-			console.log(this.state, '<-- STATE AFTER ADDING POST')
+			console.log(this.state.post, '<-- STATE AFTER ADDING POST')
 
 		}catch(err){
 			console.log(err, '<-- error in adding a post');

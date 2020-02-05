@@ -5,26 +5,30 @@
 @tailwind utilities;
 
 
+.header {
+	@apply text-green-600 uppercase sticky top-0 font-mono text-4xl italic font-medium tracking-wider leading-loose text-center;
+}
+
 .btn {
-	@apply font-bold p-1 bg-gray-200 mx-12 my-2 flex justify-center rounded text-blue-800;
+	@apply font-bold p-1 bg-gray-200 mx-12 my-2 flex justify-center rounded text-blue-800 font-mono inline;
 }
 .btn:hover {
-	@apply font-bold p-1 bg-gray-400 mx-12 my-2 flex justify-center rounded text-blue-800;
+	@apply font-bold p-1 bg-gray-400 mx-12 my-2 flex justify-center rounded text-blue-800 border-gray-500 inline;
 }
 .btn-container {
-	@apply ml-64 justify-center;
+	@apply justify-center;
 }
 .closeBtns {
-	@apply font-bold p-1 rounded bg-gray-200 shadow my-2 ml-2 text-blue-800;
+	@apply font-bold p-1 rounded bg-gray-200 shadow ml-2 text-blue-800;
 }
 .closeBtns:hover {
-	@apply font-bold p-1 bg-gray-400 shadow my-2 ml-2 rounded text-blue-800;
+	@apply font-bold p-1 bg-gray-400 shadow ml-2 rounded text-blue-800;
 }
 .firstInputs {
 	@apply shadow my-1 p-2 mx-12 border-gray-500 rounded text-gray-700 flex justify-center;
 }
 .mainText {
-	@apply font-bold mx-12 text-gray-200 px-px flex justify-center;
+	@apply font-bold mx-12 font-mono text-gray-200 px-px flex justify-center;
 }
 .background {
 	@apply bg-gray-800 min-h-screen h-full flex-wrap;
@@ -42,8 +46,18 @@
 	@apply h-12 max-h-full font-bold bg-gray-100 text-blue-800 mb-2 rounded-b;
 }
 .logout {
-	@apply text-black underline flex justify-center;
+	@apply font-mono text-black underline flex justify-center;
 }
-.auth-container {
-	@apply flex justify-center mx-12;
+.authContainer {
+	@apply flex justify-center mx-12 font-mono;
 }
+.signInContainer {
+	@apply bg-gray-700 p-2 border rounded border-double border-gray-500 font-mono;
+}
+
+.logo {
+	@apply text-green-600 uppercase sticky top-0 font-mono italic text-xs align-middle tracking-wider text-left;
+}
+
+
+

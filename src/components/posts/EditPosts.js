@@ -9,14 +9,20 @@ const EditPost = (props) => {
 	return(
 		<div className="auth-container">
 			<form onSubmit={props.editPosts}>
+			
+			<label className="mainText">Edit Title: </label>
+				<input className="firstInputs" type="text" name="title" onChange={props.handleFormChange} value={props.postToEdit.title}/><br />
+			
 			<label className="mainText">Edit Text: </label>
 				<input className="firstInputs" type="text" name="text" onChange={props.handleFormChange} value={props.postToEdit.text}/><br />
+			
 			<label className="mainText">Edit Image: </label>
 				<input className="firstInputs" type="text" name="image" onChange={props.handleFormChange} value={props.postToEdit.image}/><br />
 				
 				<div className="btn-container">
 					<button className="closeBtns" type="submit">Update</button>
 				</div>
+			
 			</form>
 		</div>
 		)

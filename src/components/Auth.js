@@ -8,12 +8,12 @@ class Auth extends Component {
 	constructor(){
 		super();
 		this.state = {
-			isLogged: false,
 			hideAuth: false,
-			isMember: false,
 			currentUser: {
 				email: '',
-				password: ''
+				password: '',
+				isLogged: false,
+				isMember: false
 			}
 		}
 	}
@@ -44,14 +44,55 @@ class Auth extends Component {
 		console.log(this.state, '<-- state after setting it')
 	}
 
-	loggingIn = (e, props) => {
+	loggingInUser = async(e, props) => {
 		e.preventDefault();
-		console.log('this is the login')
-		this.setState({
-			isLogged: true,
-			hideAuth: true
-		})
+		try{
+			const userLogin = await fetch('http://localhost:9000/user/login', {
+				method: 'POST',
+				credentials: 'include',
+				body: JSON.stringify(this.state.currentUser),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+			console.log(userLogin, '<-- user login fetched')
+			const parsedLogin = await userLogin.json();
+
+			if(parsedLogin.status.code === 200){
+				//console.log('User Logged in!!');
+				console.log(parsedLogin.data.email, '<-- what you are setting the logged in state as')
+				this.setState({
+					currentUser: {
+						email: parsedLogin.data.email,
+						id: parsedLogin.data.password,
+						isLogged: true,
+						isMember: true
+					}
+				})
+				console.log(this.state.currentUser, '<-- current user in the login route')
+				this.props.passCurrentUser(this.state.currentUser);
+			}
+
+		}catch(err){
+
+		}
 	}
+
+//LOGOUT ROUTE
+	// logoutUser = async (e, props) => {
+	// 	e.preventDefault();
+	// 	try{
+	// 		console.log(this.state.currentUser, '<-- current user about to be deleted');
+	// 		const deletedUser = await fetch('http://localhost:9000/user/logout', {
+				
+	// 		})
+
+	// 	}catch(err){
+	// 		return err;
+	// 	}
+	// }
+
+
 
 
 	registeringUser = async (e, props) => {
@@ -79,10 +120,11 @@ class Auth extends Component {
 					this.setState({
 						currentUser: {
 							email: createUserResponse.data.email,
-							id: createUserResponse.data.id
+							id: createUserResponse.data.id,
+							isLogged: true,
+							hideAuth: true	
 						},
-						isLogged: true,
-						hideAuth: true				
+			
 					}, ()=>{
 						console.log(this.state.currentUser)
 						this.props.passCurrentUser(this.state.currentUser);
@@ -95,18 +137,26 @@ class Auth extends Component {
 	}
 	alreadyAMember = () => {
 		this.setState({
-			isMember: !this.state.isMember
+			currentUser: {
+				isMember: !this.state.currentUser.isMember
+			}
 		})
 	}
 
 	render(props){
 		return(
-			<div className="auth-container">
+			<div>
+			<h1 className="header">Travel Board</h1>
+			<div className="authContainer">
+
 		{!this.state.hideAuth ?  
 			<div>
-			{!this.state.isMember ?
-			<div>	
+			{!this.state.currentUser.isMember ?
+
+			<div>
+
 				<h2 className="mainText">Register</h2><br />
+				<div className="signInContainer">
 				<form onSubmit={this.registeringUser}>
 					<input className="firstInputs" type="text" placeholder="Email" onChange={this.handleRegisterChange} name="email" value={this.state.currentUser.email}/><br />
 					<input className="firstInputs" type="password" placeholder="Password" onChange={this.handleRegisterChange} name="password" value={this.state.currentUser.password} /><br />		
@@ -114,15 +164,18 @@ class Auth extends Component {
 				</form>
 				<button onClick={this.alreadyAMember} className="btn">Already a member?</button>
 				</div>
+				</div>
 				:
 				<div>
 				<h2 className="mainText">Login</h2><br />
-				<form onSubmit={this.loggingIn}>
+				<div className="signInContainer">
+				<form onSubmit={this.loggingInUser}>
 					<input className="firstInputs" type="email" placeholder="Email" onChange={this.handleLoginChange} name="email" value={this.state.currentUser.email}/><br />
 					<input className="firstInputs" type="password" placeholder="Password" onChange={this.handleLoginChange} name="password" value={this.state.currentUser.password}/><br />			
-					<button type="submit" className="btn">Login</button><br />		
+					<button className="btn">Login</button><br />		
 				</form>
 				<button onClick={this.alreadyAMember} className="btn">Not a member?</button>
+				</div>
 				</div>
 			}
 			</div>
@@ -132,7 +185,21 @@ class Auth extends Component {
 			</div>
 			}
 			</div>
+			</div>
 			)
 	}
 }
 export default Auth;
+
+
+
+
+//delete this once login is actually working
+	// loggingIn = (e, props) => {
+	// 	e.preventDefault();
+	// 	console.log('this is the login')
+	// 	this.setState({
+	// 		isLogged: true,
+	// 		hideAuth: true
+	// 	})
+	// }

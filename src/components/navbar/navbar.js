@@ -1,13 +1,15 @@
 import React from 'react';
+//import App from '../../App';
 import '../../public/style.css';
 
 
-function Navbar(){
+function Navbar(props){
 
 
 	return(
 		<div className="navbar-container">
-			<a href="http://localhost:3000/" className="logout">Logout</a>
+			<h1 className="logo">Travel Board</h1>
+			<a href="http://localhost:3000" className="logout" onClick={props.logout}>Logout</a>
 		</div>
 
 		)
