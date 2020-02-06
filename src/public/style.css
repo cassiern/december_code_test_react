@@ -11403,6 +11403,16 @@ video {
   z-index: auto;
 }
 
+.bg-gradientGray {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#1A202C), to(#2D3748));
+  background-image: linear-gradient(to top, #1A202C, #2D3748);
+}
+
+.bg-gradientLight {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#2D3748), to(#4A5568));
+  background-image: linear-gradient(to top, #2D3748, #4A5568);
+}
+
 .header {
   color: #38a169;
   text-transform: uppercase;
@@ -11454,9 +11464,42 @@ video {
   display: inline;
 }
 
+.btnAdd {
+  font-weight: 700;
+  padding: 0.25rem;
+  background-color: #edf2f7;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  -webkit-box-pack: center;
+          justify-content: center;
+  border-radius: 0.25rem;
+  color: #2c5282;
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.btnAdd:hover {
+  font-weight: 700;
+  padding: 0.25rem;
+  background-color: #cbd5e0;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  -webkit-box-pack: center;
+          justify-content: center;
+  border-radius: 0.25rem;
+  color: #2c5282;
+  border-color: #a0aec0;
+}
+
 .btn-container {
   -webkit-box-pack: center;
           justify-content: center;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  background-color: #2d3748;
 }
 
 .closeBtns {
@@ -11510,14 +11553,15 @@ video {
 }
 
 .background {
-  background-color: #2d3748;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#1A202C), to(#2D3748));
+  background-image: linear-gradient(to top, #1A202C, #2D3748);
   min-height: 100vh;
   height: 100%;
-  flex-wrap: wrap;
 }
 
 .image-container {
-  background-color: #2d3748;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#1A202C), to(#2D3748));
+  background-image: linear-gradient(to top, #1A202C, #2D3748);
   background-position: center;
   -webkit-box-pack: center;
           justify-content: center;
@@ -11542,7 +11586,13 @@ video {
   height: 3rem;
   max-height: 100%;
   font-weight: 700;
-  background-color: #f7fafc;
+  background-color: #4a5568;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  border-width: 1px;
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  border-color: #4a5568;
+  border-style: solid;
   color: #2c5282;
   margin-bottom: 0.5rem;
   border-bottom-right-radius: 0.25rem;
@@ -11550,13 +11600,33 @@ video {
 }
 
 .logout {
+  color: #38a169;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  color: #000;
-  text-decoration: underline;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: center;
-          justify-content: center;
+  font-style: italic;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-left: 0.25rem;
+}
+
+.logout:hover {
+  color: #48bb78;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-style: italic;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.divider {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .authContainer {
@@ -11569,14 +11639,29 @@ video {
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+.createContainer {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
 .signInContainer {
-  background-color: #4a5568;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#2D3748), to(#4A5568));
+  background-image: linear-gradient(to top, #2D3748, #4A5568);
   padding: 0.5rem;
   border-width: 1px;
   border-radius: 0.25rem;
   border-style: double;
   border-color: #a0aec0;
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .logo {
@@ -11584,13 +11669,45 @@ video {
   text-transform: uppercase;
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-style: italic;
   font-size: 0.75rem;
   vertical-align: middle;
   letter-spacing: 0.05em;
-  text-align: left;
+  margin-left: 1rem;
+}
+
+.logo:hover {
+  color: #48bb78;
+  text-transform: uppercase;
+  position: -webkit-sticky;
+  position: sticky;
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-style: italic;
+  font-size: 0.75rem;
+  vertical-align: middle;
+  letter-spacing: 0.05em;
+}
+
+.specialButtons {
+  color: #38a169;
+  text-transform: uppercase;
+  position: -webkit-sticky;
+  position: sticky;
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-style: italic;
+  font-size: 0.75rem;
+  vertical-align: middle;
+  letter-spacing: 0.05em;
+  margin-left: 1rem;
+  border-width: 1px;
+  border-color: #38a169;
+  padding: 0.5rem;
+}
+
+.specialButtons:hover {
+  color: #276749;
+  border-color: #276749;
 }
 
 @media (min-width: 640px) {
@@ -54704,6 +54821,3 @@ video {
     z-index: auto;
   }
 }
-
-
-

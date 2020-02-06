@@ -8,7 +8,7 @@ function Navbar(props){
 
 	return(
 		<div className="navbar-container">
-			<h1 className="logo">Travel Board</h1>
+			<a href="http://localhost:3000" className="logo" onClick={props.logout}>Travel Board <span className="divider">/</span></a>
 			<a href="http://localhost:3000" className="logout" onClick={props.logout}>Logout</a>
 		</div>
 

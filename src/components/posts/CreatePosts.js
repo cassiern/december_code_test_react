@@ -17,7 +17,7 @@ class CreatedPosts extends Component {
 	}
 	render(){
 		return(
-			<div className="auth-container">
+			<div className="createContainer">
 			<form onSubmit={this.props.addPost.bind(null, this.state)}>
 				<input className="firstInputs" placeholder="Add Title" type="text" name="title" onChange={this.updatePosts} value={this.state.title}/> <br />
 				<input className="firstInputs" placeholder="Add Text" type="text" name="text" onChange={this.updatePosts} value={this.state.text}/> <br />

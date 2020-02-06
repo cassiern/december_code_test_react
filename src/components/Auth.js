@@ -162,7 +162,7 @@ class Auth extends Component {
 					<input className="firstInputs" type="password" placeholder="Password" onChange={this.handleRegisterChange} name="password" value={this.state.currentUser.password} /><br />		
 					<button className="btn">Register</button>
 				</form>
-				<button onClick={this.alreadyAMember} className="btn">Already a member?</button>
+				<button onClick={this.alreadyAMember} className="btn">Already a Member?</button>
 				</div>
 				</div>
 				:
@@ -174,7 +174,7 @@ class Auth extends Component {
 					<input className="firstInputs" type="password" placeholder="Password" onChange={this.handleLoginChange} name="password" value={this.state.currentUser.password}/><br />			
 					<button className="btn">Login</button><br />		
 				</form>
-				<button onClick={this.alreadyAMember} className="btn">Not a member?</button>
+				<button onClick={this.alreadyAMember} className="btn">Not a Member?</button>
 				</div>
 				</div>
 			}
@@ -191,15 +191,3 @@ class Auth extends Component {
 }
 export default Auth;
 
-
-
-
-//delete this once login is actually working
-	// loggingIn = (e, props) => {
-	// 	e.preventDefault();
-	// 	console.log('this is the login')
-	// 	this.setState({
-	// 		isLogged: true,
-	// 		hideAuth: true
-	// 	})
-	// }

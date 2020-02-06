@@ -3,56 +3,36 @@ import '../../public/style.css';
 import '../../style.css';
 
 const ListPosts = (props) => {
-	console.log(props.title, '<-- PROPS passed into LISTposts')
+
 	const postList = props.posts.map((post) => {
+		console.log(post.text, '<-- props test inLISTPOST')
+		console.log(post.title, '<-- props title inLISTPOST')
+
 		return (
-			<div key={post._id} className="flex-1 flex-wrap">
-			<div className="w-1/3 mb-4 border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex-1 mb-4 justify-between leading-normal">
-			
-			<li>
-				<div className="max-w-sm w-full lg:max-w-full lg:flex ">
-					<img src={post.image} className="h-48 lg:h-auto lg:w-48 flex-wrap bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" alt=""/><br />
-				</div>
-				<div className="">
-					<div className="p-2 text-gray-700 text-base">{post.title}</div>
-					<p className="text-gray-700 text-base p-2">{post.text}</p>
-				</div>
-				<div className="btn-container"> 
-					<button className="closeBtns" onClick={props.deletePost.bind(null, post._id)}>Delete</button>
-					<button className="closeBtns" onClick={props.showModal.bind(null, post)}>Edit</button><br />
-				</div>
-			</li>
 
+			<div className="flex flex-wrap -mb-4 justify-around" key={post._id}>
+			  <div className="w-1/3 mb-4 px-2 py-2 m-2 rounded border-r border-b border-l border-gray-400 lg:border-l-1 lg:border-t lg:border-gray-400 bg-white p-4 justify-between leading-normal">
+					<li>
+						<div className="max-w-sm min-w-full w-auto lg:max-w-full lg:flex justify-center">
+							<img src={post.image} className="h-48 lg:h-auto lg:w-auto flex-wrap bg-cover rounded text-center overflow-hidden" alt="post cards"/><br />		
+						</div>
+							<h3>{post.title}</h3>
+							<p className="text-gray-700 text-base p-2 my-2">{post.text}</p>
+							<button className="specialButtons" onClick={props.deletePost.bind(null, post._id)}>Delete</button>
+							<button className="specialButtons" onClick={props.showModal.bind(null, post)}>Edit</button><br />
+					</li>
+				</div>			
 			</div>
-
-<div class="flex flex-wrap -mb-4 justify-around" key={post._id}>
-  <div class="w-1/3 mb-4 px-2 py-2 m-2 border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex-1 mb-4 justify-between leading-normal">
-			<li>
-				<div className="max-w-sm w-full lg:max-w-full lg:flex">
-					<img src={post.image} className="h-48 lg:h-auto lg:w-48 flex-wrap bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" alt=""/><br />
-					<p className="text-gray-700 text-base p-2">{post.text}</p>
-							<button className="closeBtns" onClick={props.deletePost.bind(null, post._id)}>Delete</button>
-							<button className="closeBtns" onClick={props.showModal.bind(null, post)}>Edit</button><br />
-						
-				</div>
-				</li>
-				</div>
-			  
-  <div class="w-1/3 mb-4 bg-gray-500 mx-2 h-64 lg:h-64 lg:w-48 items-stretch px-2 py-2 m-2 content-center border-gray-400"></div>
-  <div class="w-1/3 mb-4 bg-gray-400 mx-2 h-64 lg:h-64 lg:w-48 items-stretch px-2 py-2 m-2 content-center border-gray-400"></div>
-  <div class="w-1/3 mb-4 bg-gray-500 mx-2 h-64 lg:h-64 lg:w-48 items-stretch px-2 py-2 m-2 content-center border-gray-400"></div>
-  <div class="w-1/3 mb-4 bg-gray-400 mx-2 h-64 lg:h-64 lg:w-48 items-stretch px-2 py-2 m-2 content-center border-gray-400"></div>
-  <div class="w-1/3 mb-4 bg-gray-400 mx-2 h-64 lg:h-64 lg:w-48 items-stretch px-2 py-2 m-2 content-center border-gray-400"></div>
-  <div class="w-1/3 mb-4 bg-gray-500 mx-2 h-64 lg:h-64 lg:w-48 items-stretch px-2 py-2 m-2 content-center border-gray-400"></div>
-  <div class="w-1/3 mb-4 bg-gray-400 mx-2 h-64 lg:h-64 lg:w-48 items-stretch px-2 py-2 m-2 content-center border-gray-400"></div>
-  <div class="w-1/3 mb-4 bg-gray-500 mx-2 h-64 lg:h-64 lg:w-48 items-stretch px-2 py-2 m-2 content-center border-gray-400"></div>
-  <div class="w-1/3 mb-4 bg-gray-400 mx-2 h-64 lg:h-64 lg:w-48 items-stretch px-2 py-2 m-2 content-center border-gray-400"></div>
-</div>			</div>
 			)
 	})
+
+	const passPostLists = () => {
+		
+	}
+
 	return(
 		<div>
-		<h2 className="mainText">Posts</h2>
+		<h2 className="mainText">Travel Pins</h2>
 		<ul className="image-container">
 			{postList}
 		</ul>

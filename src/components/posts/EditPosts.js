@@ -7,7 +7,7 @@ const EditPost = (props) => {
 
 
 	return(
-		<div className="auth-container">
+		<div className="createContainer">
 			<form onSubmit={props.editPosts}>
 			
 			<label className="mainText">Edit Title: </label>
