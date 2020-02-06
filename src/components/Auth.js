@@ -47,7 +47,7 @@ class Auth extends Component {
 	loggingInUser = async(e, props) => {
 		e.preventDefault();
 		try{
-			const userLogin = await fetch('http://localhost:9000/user/login', {
+			const userLogin = await fetch(process.env.REACT_APP_BACKEND_URL + '/user/login', {
 				method: 'POST',
 				credentials: 'include',
 				body: JSON.stringify(this.state.currentUser),
@@ -100,7 +100,7 @@ class Auth extends Component {
 		console.log(this.state.currentUser, '<-- current user in the register')
 		try{
 			console.log(this.state.currentUser)
-			const newUser = await fetch('http://localhost:9000/user/register', {
+			const newUser = await fetch(process.env.REACT_APP_BACKEND_URL + '/user/register', {
 			method: 'POST',
 			credentials: 'include',
 			body: JSON.stringify(this.state.currentUser),
