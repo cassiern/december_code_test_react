@@ -40,7 +40,7 @@ class Main extends Component{
 //fetches posts from Express
 	getPosts = async () => {
 		try{
-			const fetchingPosts = await fetch(process.env.REACT_APP_BACKEND_URL + '/posts/', {
+			const fetchingPosts = await fetch(`${process.env.REACT_APP_API_URL}/posts/`, {
 				credentials: 'include',
 				method: 'GET'
 			});
@@ -63,7 +63,7 @@ class Main extends Component{
 		e.preventDefault();
 		console.log(post, e, '<-- post and target inside of addPost');
 		try{
-			const createdPost = await fetch(process.env.REACT_APP_BACKEND_URL + '/posts/', {
+			const createdPost = await fetch(`${process.env.REACT_APP_API_URL}/posts/`, {
 				method: 'POST',
 				credentials: 'include',
 				body: JSON.stringify(post),
@@ -96,7 +96,7 @@ class Main extends Component{
 	editPosts = async (e) => {
 		e.preventDefault();
 		try{
-			const editRequest = await fetch(process.env.REACT_APP_BACKEND_URL + this.state.postToEdit._id, {
+			const editRequest = await fetch(`${process.env.REACT_APP_API_URL}/${this.state.postToEdit._id}`, {
 				method: 'PUT',
 				credentials: 'include',
 				body: JSON.stringify(this.state.postToEdit),
@@ -142,7 +142,7 @@ class Main extends Component{
 	deletePost = async(id) => {
 		console.log(id, '<-- id to be deleted');
 		try{
-			const deletePost = await fetch(process.env.REACT_APP_BACKEND_URL + '/posts/' + id, {
+			const deletePost = await fetch(`${process.env.REACT_APP_API_URL}/posts/${id}`, {
 				method: 'DELETE',
 				//credentials: 'inlcude',
 			})
