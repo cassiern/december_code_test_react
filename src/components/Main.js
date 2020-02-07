@@ -142,9 +142,12 @@ class Main extends Component{
 	deletePost = async(id) => {
 		console.log(id, '<-- id to be deleted');
 		try{
-			const deletePost = await fetch(process.env.REACT_APP_API_URL + 'posts/id', {
+			const deletePost = await fetch(process.env.REACT_APP_API_URL + 'posts/' + id, {
 				method: 'DELETE',
-				//credentials: 'inlcude',
+				credentials: 'inlcude',
+				headers: {
+					'Content-Type': 'application/json'
+				}
 			})
 			if(deletePost.status !== 200){
 				throw Error('Error with deleting a post');
