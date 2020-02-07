@@ -26,9 +26,7 @@ const ListPosts = (props) => {
 			)
 	})
 
-	const passPostLists = () => {
-		
-	}
+
 
 	return(
 		<div>

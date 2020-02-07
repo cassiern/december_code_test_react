@@ -18,7 +18,7 @@ class App extends Component {
   logout = async (e) => {
     e.preventDefault();
 
-    const logoutUser = await fetch(process.env.REACT_APP_BACKEND_URL + '/user/logout');
+    const logoutUser = await fetch(`${process.env.REACT_APP_API_URL}/user/logout`);
     console.log(logoutUser, '<-- LOGOUT USER COMING FROM EXPRESS')
     this.setState({
       isLogged: false,
