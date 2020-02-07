@@ -10,9 +10,6 @@ const EditPost = (props) => {
 		<div className="createContainer">
 			<form onSubmit={props.editPosts}>
 			
-			<label className="mainText">Edit Title: </label>
-				<input className="firstInputs" type="text" name="title" onChange={props.handleFormChange} value={props.postToEdit.title}/><br />
-			
 			<label className="mainText">Edit Text: </label>
 				<input className="firstInputs" type="text" name="text" onChange={props.handleFormChange} value={props.postToEdit.text}/><br />
 			
