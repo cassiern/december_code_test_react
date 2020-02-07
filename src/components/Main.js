@@ -96,7 +96,7 @@ class Main extends Component{
 	editPosts = async (e) => {
 		e.preventDefault();
 		try{
-			const editRequest = await fetch(process.env.REACT_APP_API_URL + this.state.postToEdit._id, {
+			const editRequest = await fetch(process.env.REACT_APP_API_URL + 'posts/' + this.state.postToEdit._id, {
 				method: 'PUT',
 				credentials: 'include',
 				body: JSON.stringify(this.state.postToEdit),
