@@ -142,7 +142,7 @@ class Main extends Component{
 	deletePost = async(id) => {
 		console.log(id, '<-- id to be deleted');
 		try{
-			const deletePost = await fetch(process.env.REACT_APP_API_URL + 'posts/' + post._id, {
+			const deletePost = await fetch(process.env.REACT_APP_API_URL + 'posts/' + _id, {
 				method: 'DELETE',
 				credentials: 'inlcude',
 				headers: {
